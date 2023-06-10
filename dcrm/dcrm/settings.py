@@ -27,7 +27,10 @@ SECRET_KEY = 'django-insecure-b*56j=c3dn6(--rd)n-j6&ir$g438%e!2on+m$3xi_aana=3cb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
@@ -87,7 +90,10 @@ WSGI_APPLICATION = 'dcrm.wsgi.application'
 #    }
 #}
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('postgres://admin:qjN0VyOYEHyvWn0iYyRdRaC6m01defvj@dpg-ci27u067avj2t32u9brg-a/db_iyy9'), conn_max_age=600),
+    'default': dj_database_url.config(
+        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        conn_max_age=600
+    )
 }
 
 
