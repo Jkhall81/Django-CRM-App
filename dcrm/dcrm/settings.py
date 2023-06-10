@@ -76,12 +76,12 @@ WSGI_APPLICATION = 'dcrm.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jason',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db_iyy9',
         'USER': 'admin',
-        'PASSWORD': '135werd8',
-        'HOST': 'jason.cecsauqx0zay.us-east-1.rds.amazonaws.com',
-        'PORT': '3306',
+        'PASSWORD': 'qjN0VyOYEHyvWn0iYyRdRaC6m01defvj',
+        'HOST': 'postgres://admin:qjN0VyOYEHyvWn0iYyRdRaC6m01defvj@dpg-ci27u067avj2t32u9brg-a/db_iyy9',
+        'PORT': '5432',
     }
 }
 
